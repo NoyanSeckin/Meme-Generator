@@ -3,8 +3,11 @@ const meme_img = document.querySelector("#meme-img");
 const button = document.getElementById("generator-btn");
 const leftArrow = document.querySelector(".arrow-left");
 const rightArrow = document.querySelector(".fa-arrow-right");
+const spinner = document.querySelector(".spinner");
 let counter = 0;
-let imgArr = ["Wikipedia_meme_vector_version.svg.png"];
+let imgArr = [
+  "https://previews.123rf.com/images/roxanabalint/roxanabalint1911/roxanabalint191100066/134226729-let-s-have-fun-sign-or-stamp-on-white-background-vector-illustration.jpg",
+];
 meme_img.setAttribute("src", imgArr[counter]);
 
 // A function which fetches meme apis
@@ -24,10 +27,14 @@ rightArrow.addEventListener("click", function () {
 
   console.log("right arrow clicked");
   if (imgArr.length === counter) {
+    spinner.classList.remove("d-none");
+    meme_img.classList.add("d-none");
     getMemes()
       .then((data) => imgArr.push(data.url))
       .then(() => {
         meme_img.setAttribute("src", imgArr[counter]);
+        meme_img.classList.remove("d-none");
+        spinner.classList.add("d-none");
       });
   }
   counter > 0 ? (leftArrow.disabled = false) : (leftArrow.disabled = true);

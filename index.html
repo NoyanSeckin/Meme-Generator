@@ -23,11 +23,9 @@
       body {
         font-family: "Press Start 2P", sans-serif;
         background: linear-gradient(0deg, #bdbdbd, 40%, #212121);
-
-        /* background: #424242; */
       }
 
-      #meme-img {
+      .display-div {
         min-width: 25rem;
         max-width: 28rem;
         min-height: 33rem;
@@ -41,7 +39,6 @@
 
       .title {
         letter-spacing: 1rem;
-        /* background-color: #60b347; */
         font-weight: bolder;
       }
 
@@ -53,11 +50,14 @@
       }
       .text-container {
         border-radius: 5px;
-        background-color: black;
-        color: #60b347;
+        background-color: #212121;
+        color: #b71c1c;
       }
       .fa-arrow-rotate-right:hover {
         color: #0091ea;
+      }
+      .d-none {
+        display: none;
       }
     </style>
   </head>
@@ -72,7 +72,26 @@
         <button class="arrow-left transparent btn-outline align-self-center">
           <i class="fas fa-arrow-left fa-2x"></i>
         </button>
-        <img id="meme-img" src="" class="card-img-top" alt="..." />
+        <!-- Meme img -->
+        <div>
+          <img id="meme-img" src="" class="display-div" alt="..." />
+        </div>
+        <!--  -->
+        <!-- Loading spinner -->
+        <div
+          class="
+            spinner
+            display-div
+            d-none d-flex
+            justify-content-center
+            align-items-center
+          "
+        >
+          <div class="spinner-border text-dark" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+        <!--  -->
         <i class="fas fa-arrow-right fa-2x align-self-center"></i>
       </div>
       <div class="text-center mt-3">
